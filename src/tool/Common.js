@@ -1,7 +1,3 @@
-import {
-  SystemConfig
-} from '../config'
-
 // 截取字符串，多余的部分用...代替
 export let setString = (str, len) => {
   let StrLen = 0
@@ -30,14 +26,6 @@ export let OptionFormat = (GetOptions) => {
     }
   }
   return JSON.parse(options + '}')
-}
-
-// 替换SQL字符串中的前缀
-export let SqlFormat = (str) => {
-  if (SystemConfig.mysql_prefix !== 'api_') {
-    str = str.replace(/api_/g, SystemConfig.mysql_prefix)
-  }
-  return str
 }
 
 // 数组去重

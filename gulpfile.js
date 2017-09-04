@@ -12,7 +12,7 @@ function lintOne (aims) {
   console.log('ESlint:' + aims)
   console.time('Finished eslint')
   return gulp.src(aims)
-    .pipe(eslint({configFile: './.eslintrc.js'}))
+    .pipe(eslint({configFile: './.eslintrc'}))
     .pipe(eslint.format(friendlyFormatter))
     .pipe(eslint.results(results => {
       // Called once for all ESLint results.
@@ -25,7 +25,7 @@ function lintOne (aims) {
 
 gulp.task('ESlint', () => {
   return gulp.src(['src/**/*.js', '!node_modules/**'])
-    .pipe(eslint({configFile: './.eslintrc.js'}))
+    .pipe(eslint({configFile: './.eslintrc'}))
     .pipe(eslint.format(friendlyFormatter))
     // .pipe(eslint.failAfterError())
     .pipe(eslint.results(results => {

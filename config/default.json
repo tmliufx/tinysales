@@ -1,0 +1,31 @@
+{
+  "db_server": {
+    "host": "192.168.71.178",
+    "port": "3306",
+    "user": "casstime",
+    "passwd": "bilibili",
+    "db_name": "tinysales?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&testOnBorrow=\"true\"&validationQuery=\"SELECT 1\"&autoReconnectForPools=true"
+  },
+  "mail_server": {
+    "service": "mail.tinysales.net",
+    "username": "postmaster",
+    "password": "bilibili",
+    "sender_address": "XX平台 👥 <postmaster@abcd.com>"
+  },
+  "api_server": {
+    "protocol": "http://",
+    "host": "localhost",
+    "port": "3000"
+  },
+  "http_server": {
+    "protocol": "http://",
+    "host": "localhost",
+    "port": "8080"
+  },
+  "system": {
+    "country": "zh-cn",
+    "plugin_path": "./plugins",
+    "db_type": "mysql",
+    "session_key": "RESTfulAPI"
+  }
+}
