@@ -1,0 +1,25 @@
+{
+  "name": "tinysales-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmliufx/tinysales-api.git"
+  },
+  "keywords": [
+    "tinysales"
+  ],
+  "author": "tmliufx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tmliufx/tinysales-api/issues"
+  },
+  "homepage": "https://github.com/tmliufx/tinysales-api#readme",
+  "dependencies": {
+    "koa": "^2.3.0"
+  }
+}
