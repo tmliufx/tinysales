@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import { SendEmail } from '../../config';
+import Config from 'config';
 
 export default () => {
     console.log('ok');
@@ -15,11 +15,11 @@ export default () => {
 // info 是返回的消息，可能是结果的文本，也可能是对象。（这个错误不要暴露给用户）
 export const sendemail = (receivers, subject, text, html) =>
     new Promise(resolve => {
-        const transporter = nodemailer.createTransport(`smtp://${SendEmail.username}:${SendEmail.password}@${SendEmail.service}`);
+        const transporter = nodemailer.createTransport(`smtp://${Config.get('mail_server.username')}:${Config.get('mail_server.password')}@${Config.get('mail_server.service')}`);
 
         // setup e-mail data with unicode symbols
         const mailOptions = {
-            from: SendEmail.sender_address, // sender address
+            from: Config.get('mail_server.sender_address'), // sender address
             to: receivers,
             subject: subject,
             text: text || 'Hello world 🐴', // plaintext body
