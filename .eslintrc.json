@@ -1,11 +1,14 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": "airbnb-base",
   "env": {
-    "browser": true,
     "node": true,
     "mocha": true,
     "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
   },
   "rules": {
     "arrow-parens": [
@@ -21,10 +24,10 @@
       "never"
     ],
     "indent": [2, 4],
-//    "linebreak-style": [
-//      "error",
-//      "unix"
-//    ],
+    //    "linebreak-style": [
+    //      "error",
+    //      "unix"
+    //    ],
     "no-tabs": 0,
     "no-param-reassign": [
       "error",
