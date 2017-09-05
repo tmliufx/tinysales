@@ -1,10 +1,10 @@
-module.exports = function () {
-  return function (ctx, next) {
+export default () => (ctx, next) => {
     switch (ctx.status) {
-      case 404:
+    case 404:
         ctx.body = '没有找到内容 - 404'
-        break
+        break;
+    default:
+        break;
     }
-    return next()
-  }
-}
+    return next();
+};

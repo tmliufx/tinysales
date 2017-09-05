@@ -5,19 +5,17 @@ import Config from 'config';
 import path from 'path';
 import jwt from 'koa-jwt';
 import fs from 'fs';
-import {
-    System as SystemConfig
-} from './config';
 import MainRoutes from './routes/main-routes';
 import ErrorRoutesCatch from './middleware/ErrorRoutesCatch';
 import ErrorRoutes from './routes/error-routes';
 
 // import PluginLoader from './lib/PluginLoader'
 
-const app = new Koa2()
-const env = process.env.NODE_ENV || 'development' // Current mode
+const app = new Koa2();
+// Current mode
+const env = process.env.NODE_ENV || 'development';
 
-const publicKey = fs.readFileSync(path.join(__dirname, '../publicKey.pub'))
+const publicKey = fs.readFileSync(path.join(__dirname, '../publicKey.pub'));
 
 app
     .use((ctx, next) => {
@@ -26,9 +24,9 @@ app
         } else {
             ctx.set('Access-Control-Allow-Origin', Config.get('http_server.host'));
         }
-        ctx.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-        ctx.set('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS')
-        ctx.set('Access-Control-Allow-Credentials', true) // 允许带上 cookie
+        ctx.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+        ctx.set('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+        ctx.set('Access-Control-Allow-Credentials', true); // 允许带上 cookie
         return next();
     })
     .use(ErrorRoutesCatch())
@@ -47,20 +45,20 @@ app
     // .use(PluginLoader(SystemConfig.System_plugin_path))
     .use(MainRoutes.routes())
     .use(MainRoutes.allowedMethods())
-    .use(ErrorRoutes())
+    .use(ErrorRoutes());
 
 if (env === 'development') { // logger
     app.use((ctx, next) => {
-        const start = new Date()
+        const start = new Date();
         return next().then(() => {
-            const ms = new Date() - start
+            const ms = new Date() - start;
             console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
         });
     });
 }
 
-app.listen(SystemConfig.API_server_port)
+app.listen(Config.get('api_server.port'));
 
-console.log(`Now start API server on port${SystemConfig.API_server_port}...`);
+console.log(`Now start API server on port${Config.get('api_server.port')}...`);
 
 export default app;

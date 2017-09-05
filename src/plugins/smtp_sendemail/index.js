@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer';
 import { SendEmail } from '../../config';
 
 export default () => {
-    // console.log('ok')
+    console.log('ok');
 };
 
 // 发送Email（目前使用的是阿里云SMTP发送邮件）
@@ -24,7 +24,7 @@ export const sendemail = (receivers, subject, text, html) =>
             subject: subject,
             text: text || 'Hello world 🐴', // plaintext body
             html: html || '<b>Hello world 🐴</b>' // html body
-        }
+        };
 
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {

@@ -2,8 +2,8 @@
   "db_server": {
     "host": "192.168.71.178",
     "port": "3306",
-    "user": "casstime",
-    "passwd": "bilibili",
+    "username": "bilibili",
+    "password": "Init1234$",
     "db_name": "tinysales?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&testOnBorrow=\"true\"&validationQuery=\"SELECT 1\"&autoReconnectForPools=true"
   },
   "mail_server": {
