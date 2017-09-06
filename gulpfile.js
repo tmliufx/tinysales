@@ -3,7 +3,7 @@ const eslint = require('gulp-eslint');
 const nodemon = require('gulp-nodemon');
 const friendlyFormatter = require('eslint-friendly-formatter');
 
-var jsScript = 'node'
+let jsScript = 'node';
 if (process.env.npm_config_argv !== undefined && process.env.npm_config_argv.indexOf('debug') > 0) {
     jsScript = 'node debug';
 }
@@ -16,11 +16,11 @@ function lintOne(aims) {
         .pipe(eslint.format(friendlyFormatter))
         .pipe(eslint.results(results => {
             // Called once for all ESLint results.
-            console.log(`- Total Results: ${results.length}`)
-            console.log(`- Total Warnings: ${results.warningCount}`)
-            console.log(`- Total Errors: ${results.errorCount}`)
+            console.log(`- Total Results: ${results.length}`);
+            console.log(`- Total Warnings: ${results.warningCount}`);
+            console.log(`- Total Errors: ${results.errorCount}`);
             console.timeEnd('Finished eslint');
-        }))
+        }));
 }
 
 gulp.task('ESlint', () =>
@@ -34,7 +34,7 @@ gulp.task('ESlint', () =>
             console.log(`- Total Warnings: ${results.warningCount}`);
             console.log(`- Total Errors: ${results.errorCount}`);
         }))
-)
+);
 
 gulp.task('ESlint_nodemon', ['ESlint'], () => {
     const stream = nodemon({
@@ -43,8 +43,8 @@ gulp.task('ESlint_nodemon', ['ESlint'], () => {
             js: jsScript
         },
         tasks: function (changedFiles) {
-            lintOne(changedFiles)
-            return []
+            lintOne(changedFiles);
+            return [];
         },
         verbose: true,
         ignore: ['build/*.js', 'dist/*.js', 'nodemon.json', '.git', 'node_modules/**/node_modules', 'gulpfile.js'],
@@ -52,7 +52,7 @@ gulp.task('ESlint_nodemon', ['ESlint'], () => {
             NODE_ENV: 'development'
         },
         ext: 'js json'
-    })
+    });
 
     return stream
         .on('restart', () => {
@@ -63,7 +63,7 @@ gulp.task('ESlint_nodemon', ['ESlint'], () => {
             // restart the server in 20 seconds
             stream.emit('restart', 20);
         });
-})
+});
 
 gulp.task('nodemon', () => nodemon({
     script: 'build/dev-server.js',
@@ -81,4 +81,4 @@ gulp.task('nodemon', () => nodemon({
 
 gulp.task('default', ['ESlint', 'ESlint_nodemon'], () => {
     console.log('ESlint检查完成');
-})
+});

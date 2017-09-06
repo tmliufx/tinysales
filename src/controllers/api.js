@@ -4,7 +4,7 @@ export const Get = ctx => {
         name: ctx.params.name,
         para: ctx.query
     };
-}
+};
 
 export const Post = ctx => {
     ctx.body = {
@@ -12,7 +12,7 @@ export const Post = ctx => {
         name: ctx.params.name,
         para: ctx.request.body
     };
-}
+};
 
 export const Put = ctx => {
     ctx.body = {
@@ -20,7 +20,7 @@ export const Put = ctx => {
         name: ctx.params.name,
         para: ctx.request.body
     };
-}
+};
 
 export const Delect = ctx => {
     ctx.body = {
@@ -28,4 +28,4 @@ export const Delect = ctx => {
         name: ctx.params.name,
         para: ctx.request.body
     };
-}
+};
