@@ -30,6 +30,7 @@
     "koa-jwt": "^3.2.2",
     "koa-router": "^7.2.1",
     "koa-static2": "^0.1.8",
+    "mysql2": "^1.4.2",
     "nodemailer": "^4.1.0",
     "promise-mysql": "^3.0.2",
     "require-directory": "^2.1.1",
