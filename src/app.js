@@ -9,7 +9,7 @@ import MainRoutes from './routes/main-routes';
 import ErrorRoutesCatch from './middleware/ErrorRoutesCatch';
 import ErrorRoutes from './routes/error-routes';
 
-// import PluginLoader from './lib/PluginLoader'
+// import PluginLoader from './lib/PluginLoader';
 
 const app = new Koa2();
 // Current mode
