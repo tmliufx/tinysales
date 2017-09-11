@@ -3,8 +3,6 @@ import KoaBody from 'koa-body';
 import KoaStatic from 'koa-static2';
 import Config from 'config';
 import path from 'path';
-import jwt from 'koa-jwt';
-import fs from 'fs';
 import MainRoutes from './routes/main-routes';
 import ErrorRoutesCatch from './middleware/ErrorRoutesCatch';
 import ErrorRoutes from './routes/error-routes';
@@ -14,8 +12,6 @@ import ErrorRoutes from './routes/error-routes';
 const app = new Koa2();
 // Current mode
 const env = process.env.NODE_ENV || 'development';
-
-const publicKey = fs.readFileSync(path.join(__dirname, '../publicKey.pub'));
 
 app
     .use((ctx, next) => {
@@ -31,7 +27,6 @@ app
     })
     .use(ErrorRoutesCatch())
     .use(KoaStatic('assets', path.resolve(__dirname, '../assets'))) // Static resource
-    .use(jwt({ secret: publicKey }).unless({ path: [/^\/public|\/user\/login|\/assets/] }))
     .use(KoaBody({
         multipart: true,
         strict: false,
