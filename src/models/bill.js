@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
 
-const User = sequelize.define('users', {
+const Bill = sequelize.define('bill', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -10,24 +10,18 @@ const User = sequelize.define('users', {
     name: {
         type: Sequelize.STRING
     },
-    password: {
+    desc: {
         type: Sequelize.STRING
     },
-    account: {
+    type: {
         type: Sequelize.STRING
     },
-    phone: {
-        type: Sequelize.STRING
+    amount: {
+        type: Sequelize.INTEGER
     },
-    unit: {
-        type: Sequelize.STRING
-    },
-    prop: {
-        type: Sequelize.STRING
-    },
-    attr: {
-        type: Sequelize.STRING
+    invalid: {
+        type: Sequelize.BOOLEAN
     }
 });
 
-export default User;
+export default Bill;
