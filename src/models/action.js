@@ -8,13 +8,17 @@ const Action = sequelize.define('action', {
         autoIncrement: true
     },
     name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(18),
+        allowNull: false,
+        comment: '操作名称'
     },
     desc: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        comment: '操作描述'
     },
     path: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        comment: '操作的连接地址'
     }
 });
 

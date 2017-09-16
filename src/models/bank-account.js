@@ -1,33 +1,40 @@
 import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
+import Company from './company';
 
-const BankAccount = sequelize.define('bankAccount', {
+const BankAccount = sequelize.define('bank_account', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        comment: '统一编号'
+        comment: '唯一编号'
     },
     name: {
-        type: Sequelize.STRING,
-        comment: '银行卡名称'
+        type: Sequelize.STRING(18),
+        allowNull: false,
+        comment: '名称'
     },
     desc: {
         type: Sequelize.STRING,
-        comment: '银行卡描述'
+        comment: '描述'
     },
     account: {
-        type: Sequelize.STRING,
-        comment: '银行卡账号'
+        type: Sequelize.STRING(48),
+        allowNull: false,
+        comment: '账号'
     },
     owner: {
-        type: Sequelize.STRING,
-        comment: '银行卡户主名称'
+        type: Sequelize.STRING(18),
+        allowNull: false,
+        comment: '户主名称'
     },
     amount: {
         type: Sequelize.INTEGER,
-        comment: '银行卡金额'
+        defaultValue: 0,
+        comment: '金额'
     }
 });
+
+BankAccount.belongsTo(Company);
 
 export default BankAccount;

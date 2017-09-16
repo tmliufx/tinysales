@@ -1,21 +1,31 @@
 import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
+import Bill from './bill';
+import Merchandise from './merchandise';
 
-const BillItem = sequelize.define('billItem', {
+const BillItem = sequelize.define('bill_item', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
+        comment: '唯一编号'
     },
     name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(18),
+        allowNull: false,
+        comment: '名称'
     },
     count: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        comment: '数量'
     },
     amount: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        comment: '金额'
     }
 });
+
+BillItem.belongsTo(Bill);
+BillItem.hasOne(Merchandise);
 
 export default BillItem;
