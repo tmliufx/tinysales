@@ -21,7 +21,7 @@ const Merchandise = sequelize.define('merchandise', {
     },
     photo: {
         type: Sequelize.STRING
-    },
+    }
 });
 
 export default Merchandise;
