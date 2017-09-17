@@ -44,7 +44,7 @@ const Bill = sequelize.define('bill', {
     }
 });
 
-Bill.hasMany(BillItem);
+// Bill.hasMany(BillItem);
 Bill.belongsTo(Company);
 
 export default Bill;

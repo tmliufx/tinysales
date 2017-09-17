@@ -3,7 +3,7 @@ import sequelize from '../lib/sequelize';
 import Bill from './bill';
 import Merchandise from './merchandise';
 
-const BillItem = sequelize.define('bill_item', {
+const BillItem = sequelize.define('bill-item', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,

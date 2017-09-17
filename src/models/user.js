@@ -25,7 +25,6 @@ const User = sequelize.define('user', {
     },
     phone: {
         type: Sequelize.STRING(18),
-        allowNull: false,
         comment: '手机'
     }
 });

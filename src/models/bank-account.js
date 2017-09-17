@@ -2,7 +2,7 @@ import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
 import Company from './company';
 
-const BankAccount = sequelize.define('bank_account', {
+const BankAccount = sequelize.define('bank-account', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,

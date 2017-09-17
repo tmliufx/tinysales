@@ -22,6 +22,6 @@ const Catalog = sequelize.define('catalog', {
 });
 
 Catalog.belongsTo(Company);
-Catalog.hasMany(Merchandise);
+// Catalog.hasMany(Merchandise);
 
 export default Catalog;

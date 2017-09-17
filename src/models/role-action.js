@@ -3,7 +3,7 @@ import sequelize from '../lib/sequelize';
 import Action from './action';
 import Role from './role';
 
-const RoleAction = sequelize.define('role_action', {
+const RoleAction = sequelize.define('role-action', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -11,7 +11,7 @@ const RoleAction = sequelize.define('role_action', {
     }
 });
 
-Role.belongsToMany(Action, { through: 'RoleAction' });
-Action.belongsToMany(Role, { through: 'UserRole' });
+Role.belongsToMany(Action, { through: 'role-action' });
+Action.belongsToMany(Role, { through: 'role-action' });
 
 export default RoleAction;
