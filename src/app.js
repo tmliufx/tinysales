@@ -11,7 +11,6 @@ import sequelize from './lib/sequelize';
 // import PluginLoader from './lib/PluginLoader';
 
 sequelize.connection();
-sequelize.sync();
 
 const app = new Koa2();
 // Current mode
