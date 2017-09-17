@@ -8,7 +8,7 @@ const User = sequelize.define('user', {
         primaryKey: true,
         autoIncrement: true
     },
-    tinyId: {
+    tiny_id: {
         type: Sequelize.STRING,
         allowNull: false,
         comment: 'id'
