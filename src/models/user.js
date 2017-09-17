@@ -34,10 +34,4 @@ const User = sequelize.define('user', {
 
 User.belongsTo(Company);
 
-User.create({
-    name: '管理员',
-    password: 'init1234$',
-    account: 'admin'
-});
-
 export default User;
