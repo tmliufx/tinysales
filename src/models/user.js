@@ -8,6 +8,11 @@ const User = sequelize.define('user', {
         primaryKey: true,
         autoIncrement: true
     },
+    tinyId: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        comment: 'id'
+    },
     name: {
         type: Sequelize.STRING(18),
         allowNull: false,
