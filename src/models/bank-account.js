@@ -2,7 +2,7 @@ import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
 import Company from './company';
 
-const BankAccount = sequelize.define('bank-account', {
+const BankAccount = sequelize.define('bank_account', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -33,6 +33,9 @@ const BankAccount = sequelize.define('bank-account', {
         defaultValue: 0,
         comment: '金额'
     }
+},
+{
+    underscored: true
 });
 
 BankAccount.belongsTo(Company);

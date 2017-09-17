@@ -23,6 +23,9 @@ const Store = sequelize.define('store', {
         type: Sequelize.STRING,
         comment: '地址'
     }
+},
+{
+    underscored: true
 });
 
 Store.belongsTo(Company);

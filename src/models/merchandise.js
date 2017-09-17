@@ -44,6 +44,9 @@ const Merchandise = sequelize.define('merchandise', {
         allowNull: false,
         comment: '尺码'
     }
+},
+{
+    underscored: true
 });
 
 Merchandise.belongsTo(Company);

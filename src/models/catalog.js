@@ -19,7 +19,12 @@ const Catalog = sequelize.define('catalog', {
         type: Sequelize.STRING,
         comment: '描述'
     }
+},
+{
+    underscored: true
 });
+
+console.log('Merchandise', Merchandise, 'Company', Company);
 
 Catalog.belongsTo(Company);
 // Catalog.hasMany(Merchandise);

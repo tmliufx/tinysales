@@ -17,6 +17,9 @@ const Role = sequelize.define('role', {
     desc: {
         type: Sequelize.STRING
     }
+},
+{
+    underscored: true
 });
 
 Role.belongsTo(Company);

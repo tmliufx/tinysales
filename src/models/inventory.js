@@ -26,6 +26,9 @@ const Inventory = sequelize.define('inventory', {
         allowNull: false,
         comment: '数量'
     }
+},
+{
+    underscored: true
 });
 
 Inventory.belongsTo(Company);

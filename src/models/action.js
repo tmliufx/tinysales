@@ -20,6 +20,9 @@ const Action = sequelize.define('action', {
         type: Sequelize.STRING,
         comment: '操作的连接地址'
     }
+},
+{
+    underscored: true
 });
 
 export default Action;

@@ -29,6 +29,9 @@ const Company = sequelize.define('company', {
         type: Sequelize.STRING(255),
         comment: '地址'
     }
+},
+{
+    underscored: true
 });
 
 export default Company;

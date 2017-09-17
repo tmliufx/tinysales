@@ -34,6 +34,9 @@ const Supplier = sequelize.define('supplier', {
         defaultValue: 0,
         comment: '往来金额'
     }
+},
+{
+    underscored: true
 });
 
 Supplier.belongsTo(Company);

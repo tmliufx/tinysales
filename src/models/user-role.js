@@ -3,7 +3,7 @@ import sequelize from '../lib/sequelize';
 import User from './user';
 import Role from './role';
 
-const UserRole = sequelize.define('user-role', {
+const UserRole = sequelize.define('user_role', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -24,7 +24,7 @@ const UserRole = sequelize.define('user-role', {
     freezeTableName: true
 });
 
-User.belongsToMany(Role, { through: 'user-role' });
-Role.belongsToMany(User, { through: 'user-role' });
+User.belongsToMany(Role, { through: 'user_role' });
+Role.belongsToMany(User, { through: 'user_role' });
 
 export default UserRole;

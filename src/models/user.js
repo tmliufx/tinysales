@@ -27,6 +27,9 @@ const User = sequelize.define('user', {
         type: Sequelize.STRING(18),
         comment: '手机'
     }
+},
+{
+    underscored: true
 });
 
 User.belongsTo(Company);

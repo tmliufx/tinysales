@@ -42,6 +42,9 @@ const Bill = sequelize.define('bill', {
         defaultValue: true,
         comment: '单据是否有效'
     }
+},
+{
+    underscored: true
 });
 
 // Bill.hasMany(BillItem);

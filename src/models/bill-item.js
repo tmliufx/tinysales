@@ -3,7 +3,7 @@ import sequelize from '../lib/sequelize';
 import Bill from './bill';
 import Merchandise from './merchandise';
 
-const BillItem = sequelize.define('bill-item', {
+const BillItem = sequelize.define('bill_item', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -23,6 +23,9 @@ const BillItem = sequelize.define('bill-item', {
         type: Sequelize.INTEGER,
         comment: '金额'
     }
+},
+{
+    underscored: true
 });
 
 BillItem.belongsTo(Bill);
