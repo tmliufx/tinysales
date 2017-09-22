@@ -50,7 +50,13 @@ export function initDatabase() {
         User.create({
             name: '管理员',
             password: 'init1234$',
-            account: 'admin'
+            account: 'admin',
+            company: {
+                name: 'tinysales'
+            }
+        },
+        {
+            include: [Company]
         });
     });
 }
