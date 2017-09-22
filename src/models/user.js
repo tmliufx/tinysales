@@ -1,17 +1,11 @@
 import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
-import Company from './company';
 
 const User = sequelize.define('user', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
-    },
-    tiny_id: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        comment: 'id'
     },
     name: {
         type: Sequelize.STRING(18),
@@ -36,7 +30,5 @@ const User = sequelize.define('user', {
 {
     underscored: true
 });
-
-User.belongsTo(Company);
 
 export default User;

@@ -1,10 +1,7 @@
 import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
-import Company from './company';
-import Store from './store';
-import Merchandise from './merchandise';
 
-const Inventory = sequelize.define('inventory', {
+const Stock = sequelize.define('stock', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -31,8 +28,4 @@ const Inventory = sequelize.define('inventory', {
     underscored: true
 });
 
-Inventory.belongsTo(Company);
-Inventory.belongsTo(Store);
-Inventory.hasOne(Merchandise);
-
-export default Inventory;
+export default Stock;

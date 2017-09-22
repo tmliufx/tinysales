@@ -1,7 +1,5 @@
 import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
-import Company from './company';
-import BillItem from './bill-item';
 
 const Bill = sequelize.define('bill', {
     id: {
@@ -46,8 +44,5 @@ const Bill = sequelize.define('bill', {
 {
     underscored: true
 });
-
-// Bill.hasMany(BillItem);
-Bill.belongsTo(Company);
 
 export default Bill;

@@ -1,7 +1,5 @@
 import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
-import User from './user';
-import Role from './role';
 
 const UserRole = sequelize.define('user_role', {
     id: {
@@ -23,8 +21,5 @@ const UserRole = sequelize.define('user_role', {
     // 如果你不想使用这种方式你需要进行以下设置
     freezeTableName: true
 });
-
-User.belongsToMany(Role, { through: 'user_role' });
-Role.belongsToMany(User, { through: 'user_role' });
 
 export default UserRole;

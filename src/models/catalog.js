@@ -1,7 +1,5 @@
 import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
-import Company from './company';
-import Merchandise from './merchandise';
 
 const Catalog = sequelize.define('catalog', {
     id: {
@@ -23,10 +21,5 @@ const Catalog = sequelize.define('catalog', {
 {
     underscored: true
 });
-
-console.log('Merchandise', Merchandise, 'Company', Company);
-
-Catalog.belongsTo(Company);
-// Catalog.hasMany(Merchandise);
 
 export default Catalog;

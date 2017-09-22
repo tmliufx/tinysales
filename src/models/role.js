@@ -1,6 +1,5 @@
 import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
-import Company from './company';
 
 const Role = sequelize.define('role', {
     id: {
@@ -21,7 +20,5 @@ const Role = sequelize.define('role', {
 {
     underscored: true
 });
-
-Role.belongsTo(Company);
 
 export default Role;

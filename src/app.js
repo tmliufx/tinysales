@@ -6,13 +6,10 @@ import path from 'path';
 import MainRoutes from './routes/main-routes';
 import ErrorRoutesCatch from './middleware/ErrorRoutesCatch';
 import ErrorRoutes from './routes/error-routes';
-import sequelize from './lib/sequelize';
-// import models from './models';
+import { initDatabase } from './models';
 
 // import PluginLoader from './lib/PluginLoader';
-
-sequelize.connection();
-// sequelize.sync();
+initDatabase();
 
 const app = new Koa2();
 // Current mode

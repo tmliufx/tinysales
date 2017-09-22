@@ -1,6 +1,5 @@
 import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
-import Company from './company';
 
 const Supplier = sequelize.define('supplier', {
     id: {
@@ -38,7 +37,5 @@ const Supplier = sequelize.define('supplier', {
 {
     underscored: true
 });
-
-Supplier.belongsTo(Company);
 
 export default Supplier;

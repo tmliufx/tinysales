@@ -1,6 +1,5 @@
 import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
-import Company from './company';
 
 const Store = sequelize.define('store', {
     id: {
@@ -27,7 +26,5 @@ const Store = sequelize.define('store', {
 {
     underscored: true
 });
-
-Store.belongsTo(Company);
 
 export default Store;

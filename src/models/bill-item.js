@@ -1,7 +1,5 @@
 import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
-import Bill from './bill';
-import Merchandise from './merchandise';
 
 const BillItem = sequelize.define('bill_item', {
     id: {
@@ -27,8 +25,5 @@ const BillItem = sequelize.define('bill_item', {
 {
     underscored: true
 });
-
-BillItem.belongsTo(Bill);
-BillItem.hasOne(Merchandise);
 
 export default BillItem;

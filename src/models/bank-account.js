@@ -1,6 +1,5 @@
 import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
-import Company from './company';
 
 const BankAccount = sequelize.define('bank_account', {
     id: {
@@ -37,7 +36,5 @@ const BankAccount = sequelize.define('bank_account', {
 {
     underscored: true
 });
-
-BankAccount.belongsTo(Company);
 
 export default BankAccount;

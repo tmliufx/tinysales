@@ -1,7 +1,5 @@
 import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
-import Company from './company';
-import Catalog from './catalog';
 
 const Merchandise = sequelize.define('merchandise', {
     id: {
@@ -48,8 +46,5 @@ const Merchandise = sequelize.define('merchandise', {
 {
     underscored: true
 });
-
-Merchandise.belongsTo(Company);
-Merchandise.belongsTo(Catalog);
 
 export default Merchandise;
