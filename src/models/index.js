@@ -46,7 +46,7 @@ Store.belongsTo(Company);
 Supplier.belongsTo(Company);
 
 export function initDatabase() {
-    sequelize.sync({ force: true }).then(() => {
+    sequelize.sync({ force: false }).then(() => {
         User.create({
             name: '管理员',
             password: 'init1234$',
