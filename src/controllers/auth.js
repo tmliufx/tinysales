@@ -14,12 +14,6 @@ const publicKey = fs.readFileSync(path.join(__dirname, '../../id_rsa.pub'));
 export function CheckAuth(ctx) {
     const token = ctx.request.header.authorization;
     const decoded = jwt.verify(token.substr(7), publicKey);
-    logger.silly('silly');
-    logger.debug('debug');
-    logger.verbose('verbose');
-    logger.info('info');
-    logger.warn('warn');
-    logger.error('error');
     if (decoded.user) {
         ctx.body = decoded.user;
     } else {
