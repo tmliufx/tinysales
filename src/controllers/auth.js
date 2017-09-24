@@ -4,6 +4,7 @@ import path from 'path';
 import createError from 'http-errors';
 import User from '../models/user';
 import Company from '../models/company';
+import logger from '../lib/logger';
 
 const publicKey = fs.readFileSync(path.join(__dirname, '../../id_rsa.pub'));
 
@@ -13,7 +14,12 @@ const publicKey = fs.readFileSync(path.join(__dirname, '../../id_rsa.pub'));
 export function CheckAuth(ctx) {
     const token = ctx.request.header.authorization;
     const decoded = jwt.verify(token.substr(7), publicKey);
-    console.log(decoded);
+    logger.silly('silly');
+    logger.debug('debug');
+    logger.verbose('verbose');
+    logger.info('info');
+    logger.warn('warn');
+    logger.error('error');
     if (decoded.user) {
         ctx.body = decoded.user;
     } else {

@@ -8,6 +8,7 @@ import fs from 'fs';
 import MainRoutes from './routes/main-routes';
 import ErrorRoutes from './routes/error-routes';
 import { initDatabase, initAssociate } from './models';
+import logger from './lib/logger';
 
 // import PluginLoader from './lib/PluginLoader';
 initAssociate();
@@ -53,13 +54,13 @@ if (env === 'development') { // logger
         const start = new Date();
         return next().then(() => {
             const ms = new Date() - start;
-            console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
+            logger.info(`${ctx.method} ${ctx.url} - ${ms}ms`);
         });
     });
 }
 
 app.listen(Config.get('api_server.port'));
 
-console.log(`Now start API server on port${Config.get('api_server.port')}...`);
+logger.info(`Now start API server on port${Config.get('api_server.port')}...`);
 
 export default app;

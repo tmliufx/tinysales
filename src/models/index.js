@@ -1,6 +1,5 @@
-import Sequelize from 'sequelize';
 import sequelize from '../lib/sequelize';
-
+import logger from '../lib/logger';
 import Company from './company';
 import User from './user';
 import Role from './role';
@@ -68,10 +67,10 @@ export function initDatabase() {
 export default () => {
     // 测试数据库链接
     sequelize.authenticate().then(() => {
-        console.log('数据库连接成功');
+        logger.info('数据库连接成功');
     }).catch(err => {
         // 数据库连接失败时打印输出
-        console.error(err);
+        logger.error(err);
         throw err;
     });
 };
