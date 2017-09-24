@@ -5,6 +5,7 @@ const User = sequelize.define('user', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
+        unique: true,
         autoIncrement: true
     },
     name: {
@@ -20,6 +21,7 @@ const User = sequelize.define('user', {
     account: {
         type: Sequelize.STRING(18),
         allowNull: false,
+        unique: true,
         comment: '登录账号'
     },
     phone: {
