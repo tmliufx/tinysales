@@ -27,5 +27,8 @@
     "plugin_path": "./plugins",
     "db_type": "mysql",
     "session_key": "RESTfulAPI"
+  },
+  "logger": {
+    "level": "silly"
   }
 }
