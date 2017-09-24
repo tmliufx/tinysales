@@ -10,7 +10,6 @@ import ErrorRoutes from './routes/error-routes';
 import { initDatabase, initAssociate } from './models';
 import logger from './lib/logger';
 
-// import PluginLoader from './lib/PluginLoader';
 initAssociate();
 // initDatabase();
 
@@ -44,7 +43,6 @@ app
         formLimit: '10mb',
         textLimit: '10mb'
     })) // Processing request
-    // .use(PluginLoader(SystemConfig.System_plugin_path))
     .use(MainRoutes.routes())
     .use(MainRoutes.allowedMethods())
     .use(ErrorRoutes());
@@ -61,6 +59,6 @@ if (env === 'development') { // logger
 
 app.listen(Config.get('api_server.port'));
 
-logger.info(`Now start API server on port${Config.get('api_server.port')}...`);
+logger.log(`Now start API server on port${Config.get('api_server.port')}...`);
 
 export default app;
