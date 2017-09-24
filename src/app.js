@@ -7,9 +7,10 @@ import jwt from 'koa-jwt';
 import fs from 'fs';
 import MainRoutes from './routes/main-routes';
 import ErrorRoutes from './routes/error-routes';
-// import { initDatabase } from './models';
+import { initDatabase, initAssociate } from './models';
 
 // import PluginLoader from './lib/PluginLoader';
+initAssociate();
 // initDatabase();
 
 const app = new Koa2();

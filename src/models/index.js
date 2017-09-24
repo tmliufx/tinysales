@@ -17,33 +17,37 @@ import Stock from './stock';
 import Store from './store';
 import Supplier from './supplier';
 
-User.belongsTo(Company);
-User.belongsToMany(Role, { through: 'user_role' });
-Role.belongsToMany(User, { through: 'user_role' });
-Role.belongsTo(Company);
-Role.belongsToMany(Action, { through: 'role_action' });
-Action.belongsToMany(Role, { through: 'role_action' });
+export function initAssociate() {
+    User.belongsTo(Company);
+    User.belongsToMany(Role, { through: 'user_role' });
+    Role.belongsToMany(User, { through: 'user_role' });
+    Role.belongsTo(Company);
+    Role.belongsToMany(Action, { through: 'role_action' });
+    Action.belongsToMany(Role, { through: 'role_action' });
 
-Bill.hasMany(BillItem);
-Bill.belongsTo(Company);
+    Bill.hasMany(BillItem);
+    Bill.belongsTo(Company);
 
-BankAccount.belongsTo(Company);
+    BankAccount.belongsTo(Company);
 
-BillItem.belongsTo(Bill);
-BillItem.hasOne(Merchandise);
+    BillItem.belongsTo(Bill);
+    BillItem.hasOne(Merchandise);
 
-Catalog.belongsTo(Company);
-Catalog.hasMany(Merchandise);
+    Catalog.belongsTo(Company);
+    Catalog.hasMany(Merchandise);
 
-Merchandise.belongsTo(Company);
-Merchandise.belongsTo(Catalog);
+    Merchandise.belongsTo(Company);
+    Merchandise.belongsTo(Catalog);
 
-Stock.belongsTo(Company);
-Stock.belongsTo(Store);
-Stock.hasOne(Merchandise);
+    Stock.belongsTo(Company);
+    Stock.belongsTo(Store);
+    Stock.hasOne(Merchandise);
 
-Store.belongsTo(Company);
-Supplier.belongsTo(Company);
+    Store.belongsTo(Company);
+    Supplier.belongsTo(Company);
+
+    // User.associate = models => User.belongsTo(models.Company);
+}
 
 export function initDatabase() {
     sequelize.sync({ force: false }).then(() => {
