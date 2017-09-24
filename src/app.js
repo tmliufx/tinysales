@@ -3,17 +3,20 @@ import KoaBody from 'koa-body';
 import KoaStatic from 'koa-static2';
 import Config from 'config';
 import path from 'path';
+import jwt from 'koa-jwt';
+import fs from 'fs';
 import MainRoutes from './routes/main-routes';
-import ErrorRoutesCatch from './middleware/ErrorRoutesCatch';
 import ErrorRoutes from './routes/error-routes';
-import { initDatabase } from './models';
+// import { initDatabase } from './models';
 
 // import PluginLoader from './lib/PluginLoader';
-initDatabase();
+// initDatabase();
 
 const app = new Koa2();
 // Current mode
 const env = process.env.NODE_ENV || 'development';
+
+const publicKey = fs.readFileSync(path.join(__dirname, '../id_rsa.pub'));
 
 app
     .use((ctx, next) => {
@@ -27,8 +30,8 @@ app
         ctx.set('Access-Control-Allow-Credentials', true); // 允许带上 cookie
         return next();
     })
-    .use(ErrorRoutesCatch())
     .use(KoaStatic('assets', path.resolve(__dirname, '../assets'))) // Static resource
+    .use(jwt({ secret: publicKey }).unless({ path: [/^\/public|\/auth|\/assets/] }))
     .use(KoaBody({
         multipart: true,
         strict: false,

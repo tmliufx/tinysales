@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/tmliufx/tinysales-api#readme",
   "dependencies": {
+    "http-errors": "^1.6.2",
     "jsonwebtoken": "^7.4.3",
     "koa": "^2.3.0",
     "koa-body": "^2.3.0",
